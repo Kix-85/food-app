@@ -1,12 +1,14 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import React from 'react'
+import {router} from 'expo-router'
 
-const sign-in = () => {
+const sign_in = () => {
   return (
     <View>
-      <Text>sign-in</Text>
+      <Text>Sign In</Text>
+      <Button title="Sign Up" onPress={() => router.push('/sign-up')}/>
     </View>
   )
 }
 
-export default sign-in
+export default sign_in
