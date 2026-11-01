@@ -1,5 +1,5 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native'
-import { images } from '../../constants'
+import { images } from '@/constants'
 
 const CartButton = () => {
     const totalItems = 0

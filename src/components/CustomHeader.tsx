@@ -2,7 +2,7 @@ import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { CustomHeaderProps } from "@/type";
-import { images } from "../../constants";
+import { images } from "@/constants";
 
 const CustomHeader = ({ title }: CustomHeaderProps) => {
     const router = useRouter();

@@ -1,9 +1,9 @@
+import CartButton from "@/components/CartButton";
 import cn from "clsx";
 import { FlatList, Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Fragment } from "react/jsx-runtime";
-import { images, offers } from "../../../constants";
-import CartButton from "@/components/CartButton";
+import { images, offers } from "@/constants";
 
 export default function Index() {
   return (

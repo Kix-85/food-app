@@ -1,4 +1,3 @@
-import React from 'react'
 import { CustomButtonProps } from '@/type'
 import cn from 'clsx'
 import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native'

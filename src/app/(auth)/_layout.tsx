@@ -1,7 +1,6 @@
 import { Slot } from 'expo-router'
-import React from 'react'
-import { Dimensions, ImageBackground, Image, KeyboardAvoidingView, Platform, ScrollView, Text, View } from 'react-native'
-import {images} from '../../../constants'
+import { Dimensions, Image, ImageBackground, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native'
+import { images } from '@/constants'
 
 export default function _layout() {
   return (
