@@ -3,20 +3,23 @@ import CustomInput from '@/components/CustomInput'
 import { Link, router } from 'expo-router'
 import React from 'react'
 import { Alert, Text, View } from 'react-native'
+import { signIn } from '../../../lib/appwrite'
 
-const sign_in = () => {
+const SignIn = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [form, setForm] = React.useState({
     email: '',
     password: ''
   });
   const submit = async () => {
-    if(!form.email || !form.password) {
-      Alert.alert('Error', 'Please enter valid email and password');
+    const {email, password} = form;
+
+    if(!email || !password) {
+      return Alert.alert('Error', 'Please enter valid email and password');
     }
     setIsSubmitting(true);
     try {
-      // Call Appwrite signin function
+      await signIn({ email, password });
 
       Alert.alert('success', 'User signed in succesfully');
       router.replace('/');
@@ -31,30 +34,32 @@ const sign_in = () => {
         <CustomInput
           placeholder="Enter your email.."
           value={form.email}
-          onChangeText={(prev) => {setForm({...form, email: prev})}}
+          onChangeText={(text) => {setForm((prev)=>({...prev, email: text}))}}
           label="Email"
           keyboardType="email-address"
         />
         <CustomInput
           placeholder="Enter your password.."
-          value={''}
-          onChangeText={() => {}}
+          value={form.password}
+          onChangeText={(text) => {setForm((prev)=>({...prev, password: text}))}}
           label="Password"
           secureTextEntry={true}
         />
         <CustomButton
           title="Sign In"
+          isLoading={isSubmitting}
+          onPress={submit}
         />
         <View className="flex justify-center items-center mt-5 flex-row gap-1">
           <Text className="base-regular text-gray-100">
-            Don't have an account?
+            {"Do not have an account?"}
           </Text>
           <Link href={'/sign-up'}>
-              <Text className="base-bold text-primary">Sign Up</Text>
+              <Text className="base-bold text-primary">{"Sign Up"}</Text>
           </Link>
         </View>
     </View>
   )
 }
 
-export default sign_in
+export default SignIn

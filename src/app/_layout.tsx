@@ -18,3 +18,4 @@ export default function RootLayout() {
   }, [fontsLoaded, error])
   return <Stack screenOptions={{ headerShown: false }} />;
 }
+
