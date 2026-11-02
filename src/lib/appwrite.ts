@@ -8,6 +8,9 @@ export const appwriteConfig: any = {
     platform: process.env.EXPO_PUBLIC_APPWRITE_PLATFORM,
     databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
     userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_USER_COLLECTION_ID,
+    categoryCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORY_COLLECTION_ID,
+    menuCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_COLLECTION_ID,
+    customizationCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATION_COLLECTION_ID,
 }
 
 export const client = new Client()
