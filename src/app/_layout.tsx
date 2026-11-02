@@ -38,6 +38,13 @@ export default Sentry.wrap(function RootLayout() {
     error && console.log(error)
     fontsLoaded && SplashScreen.hideAsync()
   }, [fontsLoaded, error])
+
+  useEffect(() => {
+    fetchAuthenticatedUser();
+  }, [])
+
+  if(!fontsLoaded || isLoading) return null;
+
   return <Stack screenOptions={{ headerShown: false }} />;
   
 });

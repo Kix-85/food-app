@@ -1,6 +1,5 @@
 import { User } from '@/type';
 import { create } from 'zustand';
-
 import { getCurrentUser } from '@/lib/appwrite';
 
 type AuthStore = {
@@ -21,7 +20,7 @@ const useAuthStore = create<AuthStore>((set) => ({
     isLoading: false,
 
     setIsAuthenticated: (value) => set({ isAuthenticated: value }),
-    setUser: (user) => set({ user}),
+    setUser: (user) => set({ user }),
     setLoading: (value) => set({ isLoading: value }),
 
     fetchAuthenticatedUser: async () => {
@@ -29,7 +28,7 @@ const useAuthStore = create<AuthStore>((set) => ({
 
         try {
             const user = await getCurrentUser();
-            if(user) set({ user: user as User, isAuthenticated: true });
+            if(user) set({ isAuthenticated: true, user: user as User });
             else set({ user: null, isAuthenticated: false })
         } catch(error) {
             console.log('Error fetching authenticated user:', error);

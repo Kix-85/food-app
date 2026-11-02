@@ -29,7 +29,7 @@ export const createUser = async ({ email, password, name }: CreateUserParams) =>
 
         await signIn({ email, password });
 
-        const avatarUrl = await avatars.getInitials({ name }).toString();
+        const avatarUrl = avatars.getInitialsURL(name).toString();
 
         return await database.createDocument({
             databaseId: appwriteConfig.databaseId,
@@ -58,7 +58,10 @@ export const signIn = async ({ email, password }: SignInParams) => {
 export const getCurrentUser = async () => {
     try {
         const currentAccount = await account.get();
-        if (!currentAccount) throw Error;
+        if (!currentAccount){ 
+            console.log('No current account found');
+            throw Error
+        };
 
         const currentUser = await database.listDocuments({
             databaseId: appwriteConfig.databaseId,
@@ -67,7 +70,10 @@ export const getCurrentUser = async () => {
                 Query.equal('accountId', currentAccount.$id)
             ]
         });
-        if (!currentUser || currentUser.total === 0) throw Error;
+    if (!currentUser || currentUser.total === 0) {
+        console.log('No current user document found');
+        throw Error;
+    }
         
         return currentUser.documents[0];
         
