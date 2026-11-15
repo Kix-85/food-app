@@ -4,7 +4,6 @@ import { Image, Platform, Text, TouchableOpacity } from 'react-native'
 
 const MenuCard = ({ item: { image_url, name, price } }: { item: MenuItem }) => {
     const imageUrl =`${image_url}?project=${appwriteConfig.projectId}`
-    console.log('imageUrl', imageUrl)
     return (
         <TouchableOpacity className="menu-card" style={Platform.OS ==='android' && { elevation:10, shadowColor:'#878787'}}>
             <Image source={{ uri: imageUrl }} className="size-32 absolute -top-10" resizeMode="contain" />

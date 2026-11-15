@@ -8,8 +8,6 @@ import useAuthStore from "@/store/auth.store";
 
 export default function Index() {
   const { user } = useAuthStore();
-  console.log("User from store:", JSON.stringify(user, null, 2)); // Log the user object to check its value
-
   return (
     <SafeAreaView className="flex-1 bg-white">
       <FlatList

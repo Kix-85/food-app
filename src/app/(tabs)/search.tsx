@@ -45,7 +45,7 @@ const Search = () => {
               <CartButton />
             </View>
             <SearchBar />
-            <Filter />
+            <Filter categories={categories!} />
           </View>
         )
         }
